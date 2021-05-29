@@ -1,29 +1,27 @@
-pipeline{
-    agent any
-    stages{
-        stage("seeing compile code"){
+pipeline {
+    agent {
+        label 'SLAVE'
+    }
+    stages {
+        stage('seeing compile code') {
             steps{
                 sh '''
                 mvn compile
                 '''
             }
         }
-    }
-    stages{
-        stage("package code"){
-            steps{
+        stage('package code') {
+            steps {
                 sh '''
                 mvn pacakge
                 '''
             }
         }
-    }
-    stages{
-        stage("seeing artifacts"){
-            steps{
+        stage('seeing artifacts') {
+            steps {
                 sh '''
                 cd target/*.jar user.jar
-                zip users.zip  user.jar*
+                zip -r users.zip  user.jar*
                 '''
             }
         }
