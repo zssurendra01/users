@@ -13,7 +13,7 @@ pipeline {
         stage('package code') {
             steps {
                 sh '''
-                mvn pacakge
+                mvn package
                 '''
             }
         }
