@@ -20,7 +20,7 @@ pipeline {
         stage('seeing artifacts') {
             steps {
                 sh '''
-                cd target/*.jar surefire-reports users.jar
+                cd target/users.jar
                 zip -r users.zip  user.jar*
                 '''
             }
