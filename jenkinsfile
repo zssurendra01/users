@@ -20,8 +20,8 @@ pipeline {
         stage('seeing artifacts') {
             steps {
                 sh '''
-                cd target/*.jar users.jar
-                zip -r users.zip  users.jar*
+                cd target/*.jar user.jar
+                zip -r user.zip  user.jar*
                 '''
             }
         }
